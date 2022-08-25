@@ -59,17 +59,23 @@ namespace CoordPicker {
             if (isDrawing) {
                 endPoint = e.Location;
                 isDrawing = false;
-                hasRect = true;
-                pictureBox1.Invalidate();
-                coordBox.SetPoint(startPoint, endPoint);
-                //
-                var builder = new StringBuilder();
-                builder.Append(startPoint.X + "\t");
-                builder.Append(startPoint.Y + "\t");
-                builder.Append(endPoint.X + "\t");
-                builder.Append(endPoint.Y);
-                builder.AppendLine();
-                Clipboard.SetText(builder.ToString());
+                if (endPoint.Equals(startPoint)) {
+                    hasRect = false;
+                    pictureBox1.Invalidate();
+                    coordBox.SetPoint(endPoint);
+                } else {
+                    hasRect = true;
+                    pictureBox1.Invalidate();
+                    coordBox.SetPoint(startPoint, endPoint);
+                    //
+                    var builder = new StringBuilder();
+                    builder.Append(Math.Min(startPoint.X, endPoint.X) + "\t");
+                    builder.Append(Math.Min(startPoint.Y, endPoint.Y) + "\t");
+                    builder.Append(Math.Max(startPoint.X, endPoint.X) + "\t");
+                    builder.Append(Math.Max(startPoint.Y, endPoint.Y));
+                    builder.AppendLine();
+                    Clipboard.SetText(builder.ToString());
+                }
             }
         }
 
