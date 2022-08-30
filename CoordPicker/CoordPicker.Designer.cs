@@ -29,8 +29,13 @@
             this.coordBox1 = new System.Windows.Forms.TextBox();
             this.fnameBox1 = new System.Windows.Forms.TextBox();
             this.sizeBox1 = new System.Windows.Forms.TextBox();
+            this.group_zoom = new System.Windows.Forms.GroupBox();
+            this.scaleBox1 = new System.Windows.Forms.TextBox();
+            this.button_minus = new System.Windows.Forms.Button();
+            this.button_plus = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.group_zoom.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -38,7 +43,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
@@ -83,25 +88,65 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fnameBox1.BackColor = System.Drawing.SystemColors.Control;
             this.fnameBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.fnameBox1.Location = new System.Drawing.Point(107, 7);
+            this.fnameBox1.Location = new System.Drawing.Point(236, 7);
             this.fnameBox1.Name = "fnameBox1";
-            this.fnameBox1.Size = new System.Drawing.Size(698, 18);
+            this.fnameBox1.Size = new System.Drawing.Size(569, 18);
             this.fnameBox1.TabIndex = 4;
             // 
             // sizeBox1
             // 
             this.sizeBox1.BackColor = System.Drawing.SystemColors.Control;
             this.sizeBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.sizeBox1.Location = new System.Drawing.Point(107, 31);
+            this.sizeBox1.Location = new System.Drawing.Point(236, 31);
             this.sizeBox1.Name = "sizeBox1";
             this.sizeBox1.Size = new System.Drawing.Size(151, 18);
             this.sizeBox1.TabIndex = 5;
+            // 
+            // group_zoom
+            // 
+            this.group_zoom.Controls.Add(this.scaleBox1);
+            this.group_zoom.Controls.Add(this.button_minus);
+            this.group_zoom.Controls.Add(this.button_plus);
+            this.group_zoom.Location = new System.Drawing.Point(107, 15);
+            this.group_zoom.Name = "group_zoom";
+            this.group_zoom.Size = new System.Drawing.Size(112, 28);
+            this.group_zoom.TabIndex = 6;
+            this.group_zoom.TabStop = false;
+            // 
+            // scaleBox1
+            // 
+            this.scaleBox1.Location = new System.Drawing.Point(26, 1);
+            this.scaleBox1.Name = "scaleBox1";
+            this.scaleBox1.Size = new System.Drawing.Size(60, 25);
+            this.scaleBox1.TabIndex = 2;
+            this.scaleBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // button_minus
+            // 
+            this.button_minus.Location = new System.Drawing.Point(0, 0);
+            this.button_minus.Name = "button_minus";
+            this.button_minus.Size = new System.Drawing.Size(27, 27);
+            this.button_minus.TabIndex = 0;
+            this.button_minus.Text = "-";
+            this.button_minus.UseVisualStyleBackColor = true;
+            this.button_minus.Click += new System.EventHandler(this.button_minus_Click);
+            // 
+            // button_plus
+            // 
+            this.button_plus.Location = new System.Drawing.Point(85, 0);
+            this.button_plus.Name = "button_plus";
+            this.button_plus.Size = new System.Drawing.Size(27, 27);
+            this.button_plus.TabIndex = 1;
+            this.button_plus.Text = "+";
+            this.button_plus.UseVisualStyleBackColor = true;
+            this.button_plus.Click += new System.EventHandler(this.button_plus_Click);
             // 
             // CoordPicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 664);
+            this.Controls.Add(this.group_zoom);
             this.Controls.Add(this.sizeBox1);
             this.Controls.Add(this.fnameBox1);
             this.Controls.Add(this.coordBox1);
@@ -111,7 +156,8 @@
             this.Text = "CoordPicker";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.group_zoom.ResumeLayout(false);
+            this.group_zoom.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,6 +171,10 @@
         private System.Windows.Forms.TextBox coordBox1;
         private System.Windows.Forms.TextBox fnameBox1;
         private System.Windows.Forms.TextBox sizeBox1;
+        private System.Windows.Forms.GroupBox group_zoom;
+        private System.Windows.Forms.Button button_minus;
+        private System.Windows.Forms.TextBox scaleBox1;
+        private System.Windows.Forms.Button button_plus;
     }
 }
 
